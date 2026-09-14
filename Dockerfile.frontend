@@ -6,7 +6,7 @@
 # ─────────────────────────────────────────────────────────────
 # Stage 1: Build
 # ─────────────────────────────────────────────────────────────
-FROM node:24-slim AS builder
+FROM node:26-slim AS builder
 
 # Build argument for API URL
 ARG VITE_HRMS_API_URL=http://localhost:5055
