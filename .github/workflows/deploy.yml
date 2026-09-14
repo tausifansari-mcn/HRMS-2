@@ -55,7 +55,7 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install frontend deps
         run: npm ci
@@ -186,7 +186,7 @@ jobs:
 
     steps:
       - name: Checkout source at triggering commit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
