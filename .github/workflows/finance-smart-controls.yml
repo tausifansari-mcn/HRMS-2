@@ -96,7 +96,7 @@ jobs:
 
       - name: Upload backend typecheck diagnostics
         if: failure() && steps.backend-typecheck.outcome == 'failure'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: backend-typecheck-diagnostics
           path: /tmp/backend-typecheck.log
@@ -128,7 +128,7 @@ jobs:
 
       - name: Upload finance test diagnostics
         if: failure() && steps.finance-tests.outcome == 'failure'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: finance-test-diagnostics
           path: /tmp/finance-tests.log
