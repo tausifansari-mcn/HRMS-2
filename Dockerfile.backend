@@ -6,7 +6,7 @@
 # ─────────────────────────────────────────────────────────────
 # Stage 1: Build
 # ─────────────────────────────────────────────────────────────
-FROM node:24-slim AS builder
+FROM node:26-slim AS builder
 
 # Install build dependencies for native modules
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -32,7 +32,7 @@ RUN cd backend && npm run build
 # ─────────────────────────────────────────────────────────────
 # Stage 2: Runtime
 # ─────────────────────────────────────────────────────────────
-FROM node:24-slim AS runtime
+FROM node:26-slim AS runtime
 
 # Security: Run as non-root user
 RUN groupadd -r appgroup && useradd -r -g appgroup appuser
