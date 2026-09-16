@@ -500,6 +500,7 @@ const KNOWN_IMPORT_RPCS = new Set([
   "import_lp_onboarding_apr_batch",
   "import_lp_onboarding_cdr_batch",
   "import_gnc_chat_batch",
+  "import_neemans_chat_batch",
 ]);
 
 // POST /batches/:id/import — dispatch import by rpc_name
@@ -1419,6 +1420,12 @@ async function dispatchImport(
   if (rpc_name === "import_gnc_chat_batch") {
     const { importGncChatBatch } = await import("../bulk-upload/gnc-chat-bulk.service.js");
     const data = await importGncChatBatch(id, userId);
+    return { success: true, data };
+  }
+
+  if (rpc_name === "import_neemans_chat_batch") {
+    const { importNeemansChatBatch } = await import("../bulk-upload/neemans-chat-bulk.service.js");
+    const data = await importNeemansChatBatch(id, userId);
     return { success: true, data };
   }
 
